@@ -136,3 +136,6 @@ mysqltuner.pl
 
 # Mac
 .DS_Store
+
+# VS Code
+.vscode
