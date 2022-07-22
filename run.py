@@ -27,8 +27,8 @@ class CompareTables:
             print(plus_or_minus, columns)
 
 if __name__ == '__main__':
-    PRESTO_EB=***
-    SNOWFLAKE_EB=***
+    PRESTO_EB=****
+    SNOWFLAKE_EB=****
 
     compare_obj = CompareTables(PRESTO_EB, SNOWFLAKE_EB, schema='EB', table_name='api_debounce', time_col='created')
     compare_obj.main()
