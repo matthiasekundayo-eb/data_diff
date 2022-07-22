@@ -298,8 +298,12 @@ class TableDiffer:
         mins, maxs = zip(*key_ranges)
 
         # We add 1 because our ranges are exclusive of the end (like in Python)
-        min_key = min(map(int, mins))
-        max_key = max(map(int, maxs)) + 1
+        if type(mins[0])==int:
+            min_key = min(map(int, mins))
+            max_key = max(map(int, maxs)) + 1
+        else:
+            min_key = min(mins)
+            max_key = max(maxs)
 
         table1 = table1.new(min_key=min_key, max_key=max_key)
         table2 = table2.new(min_key=min_key, max_key=max_key)

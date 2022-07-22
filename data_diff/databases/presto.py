@@ -1,5 +1,6 @@
 import re
-
+from urllib.parse import quote, unquote
+# from urllib.parse import quote_plus as urlquote
 from .database_types import *
 from .base import Database, import_helper, _query_conn
 from .base import (
@@ -9,7 +10,6 @@ from .base import (
     DEFAULT_DATETIME_PRECISION,
     DEFAULT_NUMERIC_PRECISION,
 )
-
 
 @import_helper("presto")
 def import_presto():
@@ -41,7 +41,7 @@ class Presto(Database):
         if "cert" in self.args:  # cert used after connection to verify session, but keyword is not valid so remove from connection params
             self.args.pop("cert")
         if "auth" in kw and kw.get("auth") == "basic":  # if auth=basic, add basic authenticator for Presto
-            self.args["auth"] = prestodb.auth.BasicAuthentication(user, password)
+            self.args["auth"] = prestodb.auth.BasicAuthentication(user, unquote(password))
         if schema:  # if schema was specified in URI, override default
             self.default_schema = schema
         self._conn = prestodb.dbapi.connect(**self.args)
