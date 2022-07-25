@@ -32,6 +32,3 @@ if __name__ == '__main__':
 
     compare_obj = CompareTables(PRESTO_EB, SNOWFLAKE_EB, schema='EB', table_name='api_debounce', time_col='created')
     compare_obj.main()
-
-# PRESTO_SALESFORCE='presto://matthias:IAmNowACanadianCitizen41%40@presto.prod.dataf.eb:8443/hive/salesforce?auth=basic&http_scheme=https&source=odbc&cert=/Users/matthias/Desktop/ebca.cer'
-# SNOWFLAKE_SALESFORCE='snowflake://MATTHIAS@EVENTBRITE.COM@eventbrite.us-east-1/prod_source?warehouse=prod_dataengadmin_small&role=role-dataeng-admin&schema=salesforce&key=/Users/matthias/.ssh/snowflake_rsa_key.p8'
